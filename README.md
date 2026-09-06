@@ -1,4 +1,4 @@
-# Brun — Portfolio
+# Brun Somasse | Portfolio
 
 A React + Vite personal portfolio with client-side routing (React Router), inspired by the
 layout of kobina.me, built around Brun's own background as a DevOps / Cloud Engineer.
@@ -19,7 +19,7 @@ npm run build
 npm run preview
 ```
 
-The production build is written to `dist/` — deploy that folder to any static host
+The production build is written to `dist/`; deploy that folder to any static host
 (Netlify, Vercel, GitHub Pages, S3, etc.).
 
 ## Structure

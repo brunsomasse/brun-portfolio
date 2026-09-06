@@ -60,7 +60,7 @@ export const WORK_ITEMS = [
   {
     index: "02",
     title: "Hardcoded secrets remediation",
-    desc: "Worked through Wiz findings to strip hardcoded secrets from Helm charts and git history — devops tier first, then rolled out through UAT and prod.",
+    desc: "Worked through Wiz findings to strip hardcoded secrets from Helm charts and git history, starting with the devops tier before rolling out through UAT and prod.",
     tags: ["Wiz", "Helm", "Git"],
     meta: "WEBDEV-2255/56",
   },

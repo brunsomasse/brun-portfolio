@@ -8,7 +8,7 @@ const CARDS = [
   },
   {
     title: "No-Code Web Design course",
-    body: "I teach a course on designing for the web without code — curriculum, teaching notes, and materials built for people starting outside of a traditional engineering path.",
+    body: "I teach a course on designing for the web without code: curriculum, teaching notes, and materials built for people starting outside of a traditional engineering path.",
   },
 ];
 

@@ -72,7 +72,7 @@ export default function Home() {
 
       <div>
         <h1 style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 600, fontSize: "clamp(32px, 4.4vw, 46px)", lineHeight: 1.08, color: t.ink, margin: 0 }}>
-          Brun
+          Brun Somasse
         </h1>
         <p style={{ marginTop: 20, fontSize: 17, color: t.inkSoft, maxWidth: "56ch" }}>
           A{" "}
@@ -80,11 +80,11 @@ export default function Home() {
             DevOps / Cloud Engineer
           </span>{" "}
           keeping multi-cloud infrastructure secure, automated, and boring in the best way.
-          This is my personal corner — where I share the systems I build and the projects I run on the side.
+          This is my personal corner, where I share the systems I build and the projects I run on the side.
         </p>
         <p style={{ marginTop: 14, fontSize: 17, color: t.inkSoft, maxWidth: "56ch" }}>
-          I work across GCP and Azure — GKE and AKS clusters, Terraform-managed IAM, Helm-packaged
-          services — with a habit of finding the hardcoded secret before Wiz does. Outside of work,
+          I work across GCP and Azure (GKE and AKS clusters, Terraform-managed IAM, Helm-packaged
+          services) with a habit of finding the hardcoded secret before Wiz does. Outside of work,
           I build small products for causes I care about and teach people how to design for the web
           without writing a line of code.
         </p>

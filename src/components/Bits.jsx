@@ -1,5 +1,13 @@
 import { useTheme } from "../theme";
 
+export function XIcon({ size = 15 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M18.9 2H22l-7.6 8.7L23.3 22h-6.8l-5.3-6.9L5 22H1.9l8.2-9.3L1 2h7l4.8 6.3L18.9 2Zm-1.2 18h1.9L7.4 4H5.3l12.4 16Z" />
+    </svg>
+  );
+}
+
 export function SkillPill({ label }) {
   const { t } = useTheme();
   return (

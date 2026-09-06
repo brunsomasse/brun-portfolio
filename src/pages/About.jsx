@@ -6,13 +6,13 @@ const STATS = [
   ["Primary clouds", "GCP · Azure"],
   ["Toolbelt", "Terraform · Helm · Bash"],
   ["Also building", "React / TypeScript apps"],
-  ["Community role", "UMB Board — Bénin"],
+  ["Community role", "UMB Board, Bénin"],
 ];
 
 const PARAGRAPHS = [
-  "I'm a DevOps / Cloud Engineer working across GKE and AKS environments, spending most of my time in Terraform, Helm, and Azure DevOps pipelines — the parts of the stack nobody notices until they break.",
+  "I'm a DevOps / Cloud Engineer working across GKE and AKS environments, spending most of my time in Terraform, Helm, and Azure DevOps pipelines, the parts of the stack nobody notices until they break.",
   "Recently that's meant consolidating IAM into least-privilege custom roles on GCP, scaling environments up and down around release lockdowns, and working through Wiz findings to remediate hardcoded secrets across our Helm charts and git history.",
-  "Off the clock, I sit on the board of the Union des Minigolfeurs du Bénin as Secrétaire aux Activités Sportives, where I also built a React/TypeScript scorecard app for our tournaments — and I teach a no-code web design course for people getting started outside of engineering.",
+  "Off the clock, I sit on the board of the Union des Minigolfeurs du Bénin as Secrétaire aux Activités Sportives, where I also built a React/TypeScript scorecard app for our tournaments, and I teach a no-code web design course for people getting started outside of engineering.",
 ];
 
 export default function About() {

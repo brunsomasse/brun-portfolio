@@ -55,7 +55,7 @@ export default function Header() {
             <img src="/brun.jpg" alt="Brun" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
           </div>
           <div style={{ minWidth: 0 }}>
-            <div style={{ fontSize: 17, fontWeight: 600, color: t.ink, whiteSpace: "nowrap" }}>Brun</div>
+            <div style={{ fontSize: 17, fontWeight: 600, color: t.ink, whiteSpace: "nowrap" }}>Brun Somasse</div>
             <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11.5, color: t.inkSoft, whiteSpace: "nowrap" }}>
               DevOps / Cloud Engineer
             </div>

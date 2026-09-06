@@ -1,6 +1,6 @@
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
 import { useTheme } from "../theme";
-import { IconLink } from "./Bits";
+import { IconLink, XIcon } from "./Bits";
 
 export default function Footer() {
   const { t } = useTheme();
@@ -10,18 +10,19 @@ export default function Footer() {
         <div className="bp-footer-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 32 }}>
           <div>
             <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11.5, color: t.inkFaint, marginBottom: 8 }}>Phone</div>
-            <a href="tel:+000000000000" style={{ fontSize: 15, color: t.ink, textDecoration: "none" }}>+000 00 000 0000</a>
+            <a href="tel:+2290197799021" style={{ fontSize: 15, color: t.ink, textDecoration: "none", display: "block" }}>+229 01 97 79 90 21</a>
+            <a href="tel:+2330261134223" style={{ fontSize: 15, color: t.ink, textDecoration: "none", display: "block", marginTop: 4 }}>+233 02 61 13 42 23</a>
           </div>
           <div>
             <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11.5, color: t.inkFaint, marginBottom: 8 }}>Email</div>
-            <a href="mailto:hello@example.com" style={{ fontSize: 15, color: t.ink, textDecoration: "none" }}>hello@example.com</a>
+            <a href="mailto:brunsomasse@gmail.com" style={{ fontSize: 15, color: t.ink, textDecoration: "none" }}>brunsomasse@gmail.com</a>
           </div>
           <div>
             <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11.5, color: t.inkFaint, marginBottom: 8 }}>Follow</div>
             <div style={{ display: "flex", gap: 12 }}>
-              <IconLink href="#" label="GitHub"><Github size={16} /></IconLink>
-              <IconLink href="#" label="LinkedIn"><Linkedin size={16} /></IconLink>
-              <IconLink href="#" label="X / Twitter"><Twitter size={15} /></IconLink>
+              <IconLink href="https://github.com/brunsomasse" label="GitHub"><Github size={16} /></IconLink>
+              <IconLink href="https://www.linkedin.com/in/brunsomasse/" label="LinkedIn"><Linkedin size={16} /></IconLink>
+              <IconLink href="https://x.com/brunsomasse" label="X"><XIcon size={15} /></IconLink>
             </div>
           </div>
           <div>
@@ -42,7 +43,7 @@ export default function Footer() {
             color: t.inkFaint,
           }}
         >
-          <span>Copyright © {new Date().getFullYear()} Brun.</span>
+          <span>Copyright © {new Date().getFullYear()} Brun Somasse.</span>
           <span>Built with a page of my own.</span>
         </div>
       </div>
