@@ -47,6 +47,7 @@ export const NAV_ITEMS = [
 export const SKILLS = [
   "Terraform", "Kubernetes", "GKE", "AKS", "Helm",
   "Azure DevOps", "GCP IAM", "Wiz", "React / TypeScript", "Bash",
+  "AWS Certified Solutions Architect", "Oracle Certified Solutions Architect",
 ];
 
 export const WORK_ITEMS = [

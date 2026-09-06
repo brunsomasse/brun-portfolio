@@ -4,6 +4,7 @@ import { SectionShell } from "../components/Bits";
 const STATS = [
   ["Focus", "Multi-cloud infrastructure"],
   ["Primary clouds", "GCP · Azure"],
+  ["Certifications", "AWS & Oracle Solutions Architect"],
   ["Toolbelt", "Terraform · Helm · Bash"],
   ["Also building", "React / TypeScript apps"],
   ["Community role", "UMB Board, Bénin"],
