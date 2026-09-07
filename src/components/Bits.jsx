@@ -1,24 +1,73 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTheme } from "../theme";
 
-export function RotatingRole({ roles, interval = 2200, style }) {
-  const [idx, setIdx] = useState(0);
+const SCRAMBLE_CHARS = "!<>-_\\/[]{}=+*^?#0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+function randomScrambleChar() {
+  return SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)];
+}
+
+export function RotatingRole({ roles, interval = 2600, style }) {
+  const [display, setDisplay] = useState(roles[0]);
+  const frameRef = useRef(0);
+  const queueRef = useRef([]);
+  const rafRef = useRef(null);
+  const timeoutRef = useRef(null);
+  const roleIndexRef = useRef(0);
+
   useEffect(() => {
-    const id = setInterval(() => setIdx((i) => (i + 1) % roles.length), interval);
-    return () => clearInterval(id);
+    function step() {
+      let output = "";
+      let complete = 0;
+      const queue = queueRef.current;
+      for (let i = 0; i < queue.length; i++) {
+        const q = queue[i];
+        if (frameRef.current >= q.end) {
+          complete++;
+          output += q.to;
+        } else if (frameRef.current >= q.start) {
+          if (!q.char || Math.random() < 0.3) q.char = randomScrambleChar();
+          output += q.char;
+        } else {
+          output += q.from;
+        }
+      }
+      setDisplay(output);
+      if (complete === queue.length) {
+        timeoutRef.current = setTimeout(scrambleToNext, interval);
+      } else {
+        frameRef.current++;
+        rafRef.current = requestAnimationFrame(step);
+      }
+    }
+
+    function scrambleToNext() {
+      const fromText = roles[roleIndexRef.current];
+      roleIndexRef.current = (roleIndexRef.current + 1) % roles.length;
+      const toText = roles[roleIndexRef.current];
+      const length = Math.max(fromText.length, toText.length);
+      queueRef.current = [];
+      for (let i = 0; i < length; i++) {
+        const from = fromText[i] || "";
+        const to = toText[i] || "";
+        const start = Math.floor(Math.random() * 20);
+        const end = start + Math.floor(Math.random() * 20) + 10;
+        queueRef.current.push({ from, to, start, end, char: null });
+      }
+      frameRef.current = 0;
+      cancelAnimationFrame(rafRef.current);
+      step();
+    }
+
+    timeoutRef.current = setTimeout(scrambleToNext, interval);
+
+    return () => {
+      clearTimeout(timeoutRef.current);
+      cancelAnimationFrame(rafRef.current);
+    };
   }, [roles, interval]);
-  return (
-    <span
-      key={idx}
-      style={{
-        display: "inline-block",
-        animation: "roleFadeIn 0.45s ease",
-        ...style,
-      }}
-    >
-      {roles[idx]}
-    </span>
-  );
+
+  return <span style={style}>{display}</span>;
 }
 
 export function XIcon({ size = 15 }) {
