@@ -32,41 +32,52 @@ export default function Home() {
           background: t.bgRaised,
           border: `1px solid ${t.line}`,
           overflow: "hidden",
+          display: "flex",
+          flexDirection: "column",
         }}
       >
-        <p
-          style={{
-            position: "absolute",
-            inset: 0,
-            padding: 22,
-            margin: 0,
-            fontFamily: "'JetBrains Mono', monospace",
-            fontSize: 10,
-            lineHeight: 1.55,
-            color: t.ink,
-            opacity: 0.16,
-            textAlign: "justify",
-            WebkitMaskImage: "radial-gradient(circle at 50% 50%, black 15%, transparent 72%)",
-            maskImage: "radial-gradient(circle at 50% 50%, black 15%, transparent 72%)",
-            userSelect: "none",
-          }}
-        >
-          {ghostText}
-        </p>
         <div
           style={{
-            position: "absolute",
-            left: 22,
-            bottom: 22,
-            right: 22,
-            background: t.bgRaised,
-            border: `1px solid ${t.line}`,
-            borderRadius: 3,
             padding: "14px 16px",
+            borderBottom: `1px solid ${t.line}`,
+            background: t.bgRaised,
+            flex: "none",
+            zIndex: 1,
           }}
         >
           <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: t.inkFaint }}>// currently</div>
           <div style={{ fontSize: 14, fontWeight: 600, marginTop: 2, color: t.ink }}>Building on GKE + AKS</div>
+        </div>
+        <div style={{ position: "relative", flex: 1, minHeight: 0 }}>
+          <p
+            style={{
+              position: "absolute",
+              inset: 0,
+              padding: 16,
+              margin: 0,
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: 10,
+              lineHeight: 1.55,
+              color: t.ink,
+              opacity: 0.1,
+              textAlign: "justify",
+              userSelect: "none",
+            }}
+          >
+            {ghostText}
+          </p>
+          <img
+            src="/brun.jpg"
+            alt="Brun Somasse"
+            style={{
+              position: "relative",
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              display: "block",
+              filter: "grayscale(1) contrast(1.05)",
+            }}
+          />
         </div>
       </div>
 
