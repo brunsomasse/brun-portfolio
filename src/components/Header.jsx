@@ -84,7 +84,9 @@ export default function Header() {
 
         <div style={{ display: "flex", alignItems: "center", gap: 12, flex: "none" }}>
           <a
-            href="#"
+            href="https://drive.google.com/file/d/1WwUmJ0PrNw4KNuiQYWLgwIybF4RC8gzY/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
             className="bp-resume"
             style={{
               padding: "10px 18px",
@@ -96,7 +98,7 @@ export default function Header() {
               color: dark ? t.accentInk : t.bg,
             }}
           >
-            Download résumé
+            Download Resume
           </a>
           <button
             onClick={() => setDark(!dark)}
