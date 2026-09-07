@@ -62,19 +62,7 @@ export default function Header() {
                 height: "100%",
                 objectFit: "cover",
                 display: "block",
-                filter: "grayscale(1) contrast(1.15) brightness(1.05)",
-              }}
-            />
-            <div
-              aria-hidden="true"
-              style={{
-                position: "absolute",
-                inset: 0,
-                backgroundImage: "radial-gradient(circle, rgba(0,0,0,0.9) 1px, transparent 1px)",
-                backgroundSize: "3px 3px",
-                mixBlendMode: "multiply",
-                opacity: 0.35,
-                pointerEvents: "none",
+                filter: "grayscale(1) contrast(1.05)",
               }}
             />
           </div>
