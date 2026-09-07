@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTheme } from "../theme";
 
 const SCRAMBLE_CHARS = "!<>-_\\/[]{}=+*^?#0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -9,8 +9,6 @@ function randomScrambleChar() {
 
 export function AsciiPortrait({ rows, loopInterval = 9000, label = "Portrait" }) {
   const { t } = useTheme();
-  const containerRef = useRef(null);
-  const [cell, setCell] = useState({ fontSize: 6, lineHeight: 10 });
   const [display, setDisplay] = useState(() => rows.map((r) => " ".repeat(r.length)));
   const queueRef = useRef(null);
   const frameRef = useRef(0);
@@ -18,21 +16,6 @@ export function AsciiPortrait({ rows, loopInterval = 9000, label = "Portrait" })
   const timeoutRef = useRef(null);
   const colCount = rows[0]?.length || 1;
   const rowCount = rows.length;
-
-  useLayoutEffect(() => {
-    function measure() {
-      const el = containerRef.current;
-      if (!el) return;
-      const w = el.clientWidth;
-      const h = el.clientHeight;
-      if (!w || !h) return;
-      setCell({ fontSize: w / (colCount * 0.62), lineHeight: h / rowCount });
-    }
-    measure();
-    const ro = new ResizeObserver(measure);
-    if (containerRef.current) ro.observe(containerRef.current);
-    return () => ro.disconnect();
-  }, [colCount, rowCount]);
 
   useEffect(() => {
     function buildQueue(fromRows, toRows) {
@@ -57,6 +40,7 @@ export function AsciiPortrait({ rows, loopInterval = 9000, label = "Portrait" })
               complete++;
               return q.to;
             } else if (frameRef.current >= q.start) {
+              if (q.to === " ") return " ";
               if (!q.char || Math.random() < 0.25) q.char = randomScrambleChar();
               return q.char;
             }
@@ -90,19 +74,30 @@ export function AsciiPortrait({ rows, loopInterval = 9000, label = "Portrait" })
   }, [rows, loopInterval]);
 
   return (
-    <div ref={containerRef} style={{ width: "100%", height: "100%", overflow: "hidden", position: "relative" }}>
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        overflow: "hidden",
+        position: "relative",
+        containerType: "size",
+      }}
+    >
       <span style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clip: "rect(0 0 0 0)" }}>{label}</span>
       <pre
         aria-hidden="true"
         style={{
+          position: "absolute",
+          inset: 0,
           margin: 0,
           fontFamily: "'JetBrains Mono', monospace",
-          fontSize: cell.fontSize,
-          lineHeight: `${cell.lineHeight}px`,
+          fontSize: `${100 / (colCount * 0.62)}cqw`,
+          lineHeight: `${100 / rowCount}cqh`,
           letterSpacing: 0,
           color: t.ink,
           opacity: 0.82,
           whiteSpace: "pre",
+          overflow: "hidden",
         }}
       >
         {display.join("\n")}

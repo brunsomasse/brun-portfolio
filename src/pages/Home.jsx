@@ -1,8 +1,15 @@
-import { useTheme, SKILLS, AVATAR_ASCII_ROWS } from "../theme";
+import { useMemo } from "react";
+import { useTheme, SKILLS, AVATAR_ASCII_ROWS, GHOST_SOURCE } from "../theme";
 import { SkillPill, AsciiPortrait } from "../components/Bits";
 
 export default function Home() {
   const { t } = useTheme();
+  const ghostText = useMemo(() => {
+    const words = GHOST_SOURCE.split(" ");
+    let out = "";
+    for (let i = 0; i < 90; i++) out += words[i % words.length] + " ";
+    return out;
+  }, []);
 
   return (
     <section
@@ -42,6 +49,24 @@ export default function Home() {
           <div style={{ fontSize: 14, fontWeight: 600, marginTop: 2, color: t.ink }}>Building on GKE + AKS</div>
         </div>
         <div style={{ position: "relative", flex: 1, minHeight: 0 }}>
+          <p
+            style={{
+              position: "absolute",
+              inset: 0,
+              padding: 16,
+              margin: 0,
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: 9,
+              lineHeight: 1.5,
+              color: t.ink,
+              opacity: 0.14,
+              textAlign: "justify",
+              userSelect: "none",
+              overflow: "hidden",
+            }}
+          >
+            {ghostText}
+          </p>
           <AsciiPortrait rows={AVATAR_ASCII_ROWS} label="Portrait of Brun Somasse rendered as animated character art" />
         </div>
       </div>
