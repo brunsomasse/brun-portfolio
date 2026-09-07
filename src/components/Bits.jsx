@@ -1,4 +1,25 @@
+import { useEffect, useState } from "react";
 import { useTheme } from "../theme";
+
+export function RotatingRole({ roles, interval = 2200, style }) {
+  const [idx, setIdx] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setIdx((i) => (i + 1) % roles.length), interval);
+    return () => clearInterval(id);
+  }, [roles, interval]);
+  return (
+    <span
+      key={idx}
+      style={{
+        display: "inline-block",
+        animation: "roleFadeIn 0.45s ease",
+        ...style,
+      }}
+    >
+      {roles[idx]}
+    </span>
+  );
+}
 
 export function XIcon({ size = 15 }) {
   return (

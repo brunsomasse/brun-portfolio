@@ -44,6 +44,8 @@ export const NAV_ITEMS = [
   { path: "/contact", label: "Contact" },
 ];
 
+export const ROLE_TITLES = ["DevOps Engineer", "Cloud Engineer", "Telecommunications Engineer"];
+
 export const SKILLS = [
   "Terraform", "Kubernetes", "GKE", "AKS", "Helm",
   "Azure DevOps", "GCP IAM", "Wiz", "React / TypeScript", "Bash",

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { Sun, Moon, Menu, X } from "lucide-react";
-import { useTheme, NAV_ITEMS } from "../theme";
+import { useTheme, NAV_ITEMS, ROLE_TITLES } from "../theme";
+import { RotatingRole } from "./Bits";
 
 export default function Header() {
   const { t, dark, setDark } = useTheme();
@@ -44,6 +45,7 @@ export default function Header() {
         <Link to="/" style={{ display: "flex", alignItems: "center", gap: 14, minWidth: 0, textDecoration: "none" }}>
           <div
             style={{
+              position: "relative",
               width: 44,
               height: 44,
               borderRadius: "50%",
@@ -52,12 +54,34 @@ export default function Header() {
               background: t.accent,
             }}
           >
-            <img src="/brun.jpg" alt="Brun" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+            <img
+              src="/brun.jpg"
+              alt="Brun"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                display: "block",
+                filter: "grayscale(1) contrast(1.15) brightness(1.05)",
+              }}
+            />
+            <div
+              aria-hidden="true"
+              style={{
+                position: "absolute",
+                inset: 0,
+                backgroundImage: "radial-gradient(circle, rgba(0,0,0,0.9) 1px, transparent 1px)",
+                backgroundSize: "3px 3px",
+                mixBlendMode: "multiply",
+                opacity: 0.35,
+                pointerEvents: "none",
+              }}
+            />
           </div>
           <div style={{ minWidth: 0 }}>
             <div style={{ fontSize: 17, fontWeight: 600, color: t.ink, whiteSpace: "nowrap" }}>Brun Somasse</div>
             <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11.5, color: t.inkSoft, whiteSpace: "nowrap" }}>
-              DevOps / Cloud Engineer
+              <RotatingRole roles={ROLE_TITLES} />
             </div>
           </div>
         </Link>
