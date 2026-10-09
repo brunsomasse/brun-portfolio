@@ -14,6 +14,53 @@ const responsiveCss = `
     from { opacity: 0; transform: translateY(4px); }
     to { opacity: 1; transform: translateY(0); }
   }
+  @keyframes portraitKenBurns {
+    0% { transform: scale(1) translate3d(0, 0, 0); }
+    50% { transform: scale(1.055) translate3d(-1.4%, 1%, 0); }
+    100% { transform: scale(1.03) translate3d(1.2%, -0.8%, 0); }
+  }
+  @keyframes portraitScan {
+    0% { transform: translateY(-120%); }
+    100% { transform: translateY(280%); }
+  }
+  @keyframes portraitGrain {
+    0%, 100% { opacity: 0.22; transform: translate3d(0, 0, 0); }
+    50% { opacity: 0.32; transform: translate3d(-1%, 1%, 0); }
+  }
+  .bp-portrait-img {
+    animation: portraitKenBurns 18s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+  .bp-portrait-scan {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 38%;
+    pointer-events: none;
+    background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.07) 50%, transparent 100%);
+    animation: portraitScan 6.5s linear infinite;
+    mix-blend-mode: overlay;
+  }
+  .bp-portrait-grain {
+    position: absolute;
+    inset: -20%;
+    pointer-events: none;
+    opacity: 0.28;
+    mix-blend-mode: overlay;
+    animation: portraitGrain 0.8s steps(2) infinite;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.55'/></svg>");
+    background-size: 180px 180px;
+  }
+  .bp-portrait-vignette {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at 50% 28%, transparent 38%, rgba(0,0,0,0.5) 100%);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .bp-portrait-img, .bp-portrait-scan, .bp-portrait-grain { animation: none !important; }
+  }
   .bp-menu-btn{ display:none !important; }
   @media(max-width:860px){
     .bp-nav{ display:none !important; }

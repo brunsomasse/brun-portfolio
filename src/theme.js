@@ -46,41 +46,6 @@ export const NAV_ITEMS = [
 
 export const ROLE_TITLES = ["DevOps Engineer", "Cloud Engineer", "Telecommunications Engineer"];
 
-export const AVATAR_ASCII_ROWS = [
-  "                                                      ",
-  "                                                      ",
-  "                                                      ",
-  "                      .-=****+=-.                     ",
-  "                   :+#@@@@@@@@@@@%*-                  ",
-  "                 -#@@@@@@@@@@@@@@@@@#-                ",
-  "                +@@@@@@@@@@@@@@@@@@@@@*               ",
-  "               +@@@@@@@@@@@@@@@@@@@@@@@*              ",
-  "              .%@@%%######***#####%%%@@@:             ",
-  "              -@@%**#************##**#@@=             ",
-  "              +%%#****++***********#**%@+             ",
-  "              =#*******************#***#=             ",
-  "              :++*##**++====+==++*###*++:             ",
-  "               =+*#####*======++#####*++.             ",
-  "              .-+****#%%#*=++#%%%#*#**+=              ",
-  "             +*=+*%*#@+*#*++*##*+%##%*+=+-            ",
-  "            :#++***++****#***#***#*****+**            ",
-  "            =#++*++==++*********+++++**+++            ",
-  "            -%++*+=====+*+==+**+=+===+*+*+            ",
-  "             +++*++==-+*##++*#**+===++*+*-            ",
-  "             .==***+==+**++++*#*++++***=-             ",
-  "               =*****++++++++***+*****+-              ",
-  "               =+***++***+*****#******+:              ",
-  "               :+*+***#**++++**##****++.              ",
-  "                =*****+*++**+*********-               ",
-  "                 =***##*###########**-                ",
-  "                 .*####*******######+                 ",
-  "                 .**###%%%%%%%%%%###=                 ",
-  "                 .****#%@@@@@@@%####+                 ",
-  "           .-+###*###***##%%%%######*##*=:            ",
-  "      .:=*%@@@%#######****############%@@@@%*+-:.     ",
-  ".-=+#%@@@@@@@@@%#####********##*###%%%%@@@@@@@@@@%*=: ",
-];
-
 export const SKILLS = [
   "Terraform", "Kubernetes", "GKE", "AKS", "Helm",
   "Azure DevOps", "GCP IAM", "Wiz", "React / TypeScript", "Bash",
@@ -117,6 +82,3 @@ export const WORK_ITEMS = [
     meta: "Personal",
   },
 ];
-
-export const GHOST_SOURCE =
-  "terraform kubernetes gke aks helm azure devops gcp iam wiz bash react typescript aws certified solutions architect oracle certified solutions architect multi cloud infrastructure automation secrets remediation least privilege pipelines runbooks quarterly release lockdown preview environments networks protocols connectivity telecommunications infrastructure devops cloud engineering";

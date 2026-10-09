@@ -7,72 +7,7 @@ function randomScrambleChar() {
   return SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)];
 }
 
-export function AsciiPortrait({ rows, loopInterval = 9000, label = "Portrait" }) {
-  const { t } = useTheme();
-  const [display, setDisplay] = useState(() => rows.map((r) => " ".repeat(r.length)));
-  const queueRef = useRef(null);
-  const frameRef = useRef(0);
-  const rafRef = useRef(null);
-  const timeoutRef = useRef(null);
-  const colCount = rows[0]?.length || 1;
-  const rowCount = rows.length;
-
-  useEffect(() => {
-    function buildQueue(fromRows, toRows) {
-      return toRows.map((rowStr, r) =>
-        rowStr.split("").map((ch, c) => {
-          const from = fromRows[r]?.[c] || " ";
-          const start = Math.floor(Math.random() * 30);
-          const end = start + Math.floor(Math.random() * 25) + 8;
-          return { from, to: ch, start, end, char: null };
-        })
-      );
-    }
-
-    function step() {
-      let complete = 0;
-      let total = 0;
-      const out = queueRef.current.map((rowQueue) =>
-        rowQueue
-          .map((q) => {
-            total++;
-            if (frameRef.current >= q.end) {
-              complete++;
-              return q.to;
-            } else if (frameRef.current >= q.start) {
-              if (q.to === " ") return " ";
-              if (!q.char || Math.random() < 0.25) q.char = randomScrambleChar();
-              return q.char;
-            }
-            return q.from;
-          })
-          .join("")
-      );
-      setDisplay(out);
-      if (complete === total) {
-        timeoutRef.current = setTimeout(runLoop, loopInterval);
-      } else {
-        frameRef.current++;
-        rafRef.current = requestAnimationFrame(step);
-      }
-    }
-
-    function runLoop() {
-      const blank = rows.map((r) => " ".repeat(r.length));
-      queueRef.current = buildQueue(blank, rows);
-      frameRef.current = 0;
-      cancelAnimationFrame(rafRef.current);
-      step();
-    }
-
-    runLoop();
-
-    return () => {
-      clearTimeout(timeoutRef.current);
-      cancelAnimationFrame(rafRef.current);
-    };
-  }, [rows, loopInterval]);
-
+export function PortraitImage({ src, label = "Portrait of Brun Somasse" }) {
   return (
     <div
       style={{
@@ -80,28 +15,26 @@ export function AsciiPortrait({ rows, loopInterval = 9000, label = "Portrait" })
         height: "100%",
         overflow: "hidden",
         position: "relative",
-        containerType: "size",
+        background: "#111",
       }}
     >
-      <span style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clip: "rect(0 0 0 0)" }}>{label}</span>
-      <pre
-        aria-hidden="true"
+      <img
+        src={src}
+        alt={label}
+        className="bp-portrait-img"
         style={{
           position: "absolute",
-          inset: 0,
-          margin: 0,
-          fontFamily: "'JetBrains Mono', monospace",
-          fontSize: `${100 / (colCount * 0.62)}cqw`,
-          lineHeight: `${100 / rowCount}cqh`,
-          letterSpacing: 0,
-          color: t.ink,
-          opacity: 0.82,
-          whiteSpace: "pre",
-          overflow: "hidden",
+          inset: "-4%",
+          width: "108%",
+          height: "108%",
+          objectFit: "cover",
+          objectPosition: "50% 18%",
+          filter: "grayscale(1) contrast(1.1) brightness(0.95)",
         }}
-      >
-        {display.join("\n")}
-      </pre>
+      />
+      <div className="bp-portrait-scan" aria-hidden="true" />
+      <div className="bp-portrait-grain" aria-hidden="true" />
+      <div className="bp-portrait-vignette" aria-hidden="true" />
     </div>
   );
 }
