@@ -49,7 +49,7 @@ export default function Contact() {
           
           <div style={{ padding: "24px 16px", fontFamily: "'JetBrains Mono', monospace", fontSize: 14, display: "flex", flexDirection: "column", gap: 12 }}>
             <div>
-              <span style={{ color: "#4ade80" }}>mac@macs-MacBook-Air</span>
+              <span style={{ color: "#4ade80" }}>abs@lab</span>
               <span style={{ color: "#e6edf3" }}>:</span>
               <span style={{ color: "#79c0ff" }}>~/contact</span>
               <span style={{ color: t.inkSoft }}> % </span> 
