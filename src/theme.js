@@ -44,41 +44,45 @@ export const NAV_ITEMS = [
   { path: "/contact", label: "Contact" },
 ];
 
-export const ROLE_TITLES = ["DevOps Engineer", "Cloud Engineer", "Telecommunications Engineer"];
+export const ROLE_TITLES = ["Cloud Solutions Architect", "DevOps Engineer", "Infrastructure Automation Specialist"];
 
 export const SKILLS = [
-  "Terraform", "Kubernetes", "GKE", "AKS", "Helm",
-  "Azure DevOps", "GCP IAM", "Wiz", "React / TypeScript", "Bash",
-  "AWS Certified Solutions Architect", "Oracle Certified Solutions Architect",
+  "AWS (EKS)", "Oracle Cloud (OCI)", "GCP", "Kubernetes", "Docker / Minikube",
+  "Terraform / IaC", "CI/CD Pipelines", "Python", "C++", "Linux / WSL", 
+  "Identity-Aware Proxy", "Datadog"
 ];
 
 export const WORK_ITEMS = [
   {
     index: "01",
-    title: "GCP IAM least-privilege migration",
-    desc: "Consolidated sprawling GCP IAM grants into custom least-privilege roles managed entirely through Terraform, closing a long-running audit gap.",
-    tags: ["Terraform", "GCP IAM", "Security"],
-    meta: "Remote-1798",
+    slug: "aws-eks-cluster",
+    title: "Multi-Region AWS EKS Private Cluster",
+    desc: "Designed a multi-environment, multi-region AWS EKS private cluster infrastructure architecture spanning localized deployment layers and Google Cloud Storage bucket structures.",
+    tags: ["AWS", "Kubernetes", "GCS", "Architecture"],
+    meta: "Infrastructure",
   },
   {
     index: "02",
-    title: "Hardcoded secrets remediation",
-    desc: "Worked through Wiz findings to strip hardcoded secrets from Helm charts and git history, starting with the devops tier before rolling out through UAT and prod.",
-    tags: ["Wiz", "Helm", "Git"],
-    meta: "Remote-2255/56",
+    slug: "gcp-akamai-iap",
+    title: "GCP Load Balancer & Akamai Integration",
+    desc: "Created an end-to-end integration architecture plan utilizing Akamai, Google Cloud Platform Load Balancers, and Identity-Aware Proxy templates across separated DEV and UAT environments.",
+    tags: ["GCP", "Akamai", "Security", "IAP"],
+    meta: "Enterprise",
   },
   {
     index: "03",
-    title: "QIR environment lockdown",
-    desc: "Built the scale-down / scale-up procedures for Preview environments on IA1 and VA4 GKE clusters around quarterly release lockdowns.",
-    tags: ["GKE", "Kubernetes", "Runbooks"],
-    meta: "Ongoing",
+    slug: "google-ads-mcp",
+    title: "Containerized Google Ads MCP Server",
+    desc: "Designed a local containerized deployment architecture for a Google Ads Model Context Protocol (MCP) server, building a custom Python Dockerfile environment for FastMCP stdio transport connections.",
+    tags: ["Docker", "Python", "API", "MCP"],
+    meta: "Deployment",
   },
   {
     index: "04",
-    title: "Minigolf tournament scorecard app",
-    desc: "A React/TypeScript mobile scorecard app built for the Union des Minigolfeurs du Bénin, used to run live scoring at tournaments.",
-    tags: ["React", "TypeScript", "Mobile"],
-    meta: "Personal",
+    slug: "umb-minigolf-ui",
+    title: "UMB Interactive Web Application Identity",
+    desc: "Developed a visual user interface mockup and vector asset identity suite for the Union des Minigolfeurs du Bénin (UMB) web application using a framework-free visual page-builder layout system.",
+    tags: ["UI/UX", "Frontend", "Vector Assets"],
+    meta: "Frontend",
   },
 ];
