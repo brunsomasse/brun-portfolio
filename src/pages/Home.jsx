@@ -1,5 +1,7 @@
 import { useTheme, SKILLS } from "../theme";
 import { SkillPill, PortraitImage } from "../components/Bits";
+// Added: Lucide icons from your package.json dependencies
+import { Award, ShieldCheck } from "lucide-react";
 
 export default function Home() {
   const { t } = useTheme();
@@ -39,7 +41,7 @@ export default function Home() {
           }}
         >
           <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: t.inkFaint }}>// currently</div>
-          <div style={{ fontSize: 14, fontWeight: 600, marginTop: 2, color: t.ink }}>Building on GKE + AKS</div>
+          <div style={{ fontSize: 14, fontWeight: 600, marginTop: 2, color: t.ink }}>Architecting Multi-Environment AWS EKS Clusters</div>
         </div>
         <div style={{ position: "relative", flex: 1, minHeight: 0, background: "#111" }}>
           <PortraitImage src="/brun-portrait.jpg" label="Portrait of Brun Somasse" />
@@ -50,20 +52,33 @@ export default function Home() {
         <h1 style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 600, fontSize: "clamp(32px, 4.4vw, 46px)", lineHeight: 1.08, color: t.ink, margin: 0 }}>
           Brun Somasse
         </h1>
-        <p style={{ marginTop: 20, fontSize: 17, color: t.inkSoft, maxWidth: "56ch" }}>
+        
+        {/* Added: High-visibility Certification Banner */}
+        <div style={{ display: "flex", gap: 16, marginTop: 16, marginBottom: 8 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 6, color: "#ff9900", fontSize: 14, fontWeight: 600, fontFamily: "'JetBrains Mono', monospace" }}>
+            <Award size={16} /> AWS Solutions Architect
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 6, color: "#f80000", fontSize: 14, fontWeight: 600, fontFamily: "'JetBrains Mono', monospace" }}>
+            <ShieldCheck size={16} /> OCI Solutions Architect
+          </div>
+        </div>
+
+        <p style={{ marginTop: 12, fontSize: 17, color: t.inkSoft, maxWidth: "56ch" }}>
           A{" "}
           <span style={{ display: "inline-block", background: t.pillBg, color: t.pillInk, fontFamily: "'JetBrains Mono', monospace", fontSize: 12.5, padding: "3px 9px", borderRadius: 4, margin: "0 2px" }}>
-            DevOps / Cloud Engineer
+            Cloud Engineer & DevOps Professional
           </span>{" "}
-          keeping multi-cloud infrastructure secure, automated, and boring in the best way.
-          This is my personal corner, where I share the systems I build and the projects I run on the side.
+          specializing in multi-cloud solution architecture and infrastructure automation. I focus on building scalable, declarative environments rather than relying on manual console modifications.
         </p>
+        
         <p style={{ marginTop: 14, fontSize: 17, color: t.inkSoft, maxWidth: "56ch" }}>
-          I work across GCP and Azure (GKE and AKS clusters, Terraform-managed IAM, Helm-packaged
-          services) with a habit of finding the hardcoded secret before Wiz does. Outside of work,
-          I build small products for causes I care about and teach people how to design for the web
-          without writing a line of code.
+          My core expertise lies in deploying configuration pipelines, managing container states with Kubernetes (EKS/AKS), and writing declarative Infrastructure as Code (IaC) architectures across AWS, Oracle Cloud Infrastructure, and Azure.
         </p>
+
+        <p style={{ marginTop: 14, fontSize: 15, color: t.inkFaint, maxWidth: "56ch" }}>
+          Beyond the terminal, I serve as a Volunteer Mentor guiding learners through cloud computing modules, and I design structured tech-literacy lesson plans for the next generation of engineers.
+        </p>
+
         <div style={{ display: "flex", flexWrap: "wrap", gap: 9, marginTop: 28 }}>
           {SKILLS.map((s) => (
             <SkillPill key={s} label={s} />
