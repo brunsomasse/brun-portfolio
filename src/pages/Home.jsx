@@ -1,7 +1,6 @@
 import { useTheme, SKILLS } from "../theme";
 import { SkillPill, PortraitImage } from "../components/Bits";
-// Added: Lucide icons from your package.json dependencies
-import { Award, ShieldCheck } from "lucide-react";
+import { Award, ShieldCheck, Cloud } from "lucide-react";
 
 export default function Home() {
   const { t } = useTheme();
@@ -53,13 +52,15 @@ export default function Home() {
           Brun Somasse
         </h1>
         
-        {/* Added: High-visibility Certification Banner */}
-        <div style={{ display: "flex", gap: 16, marginTop: 16, marginBottom: 8 }}>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 16, marginTop: 16, marginBottom: 8 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 6, color: "#ff9900", fontSize: 14, fontWeight: 600, fontFamily: "'JetBrains Mono', monospace" }}>
             <Award size={16} /> AWS Solutions Architect
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: 6, color: "#f80000", fontSize: 14, fontWeight: 600, fontFamily: "'JetBrains Mono', monospace" }}>
             <ShieldCheck size={16} /> OCI Solutions Architect
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 6, color: "#326ce5", fontSize: 14, fontWeight: 600, fontFamily: "'JetBrains Mono', monospace" }}>
+            <Cloud size={16} /> KCNA Certified
           </div>
         </div>
 
