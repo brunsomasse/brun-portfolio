@@ -28,8 +28,7 @@ npm_audit:
   stage: security
   image: node:20-alpine
   script:
-    - npm audit --audit-level=high
-  allow_failure: true
+    - npm audit --audit-level=critical
 
 # 3. Native GitLab Secret Detection (SAST)
 include:
