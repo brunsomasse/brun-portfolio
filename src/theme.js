@@ -85,4 +85,12 @@ export const WORK_ITEMS = [
     tags: ["UI/UX", "Frontend", "Vector Assets"],
     meta: "Frontend",
   },
+  {
+    index: "05",
+    slug: "aws-hybrid-cicd",
+    title: "Hybrid Serverless & EC2 Cloud Lab with CI/CD",
+    desc: "Engineered an automated AWS cloud architecture in eu-north-1 combining a Node.js 22 Lambda Web Adapter service, GitHub-to-CodePipeline CI/CD, S3 artifact storage, and an IMDSv2-bootstrapped EC2 Nginx/Docker host secured by least-privilege IAM roles.",
+    tags: ["AWS Lambda", "CodePipeline", "EC2", "S3", "IAM", "Docker"],
+    meta: "Cloud & CI/CD",
+  },
 ];
