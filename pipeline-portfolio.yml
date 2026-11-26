@@ -1,0 +1,35 @@
+stages:
+  - build
+  - test
+  - security
+
+# Cache node_modules to speed up pipeline execution
+cache:
+  key:
+    files:
+      - package-lock.json
+  paths:
+    - node_modules/
+
+# 1. Build Validation
+validate_build:
+  stage: build
+  image: node:20-alpine
+  script:
+    - npm ci
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 1 hour
+
+# 2. Dependency Vulnerability Audit
+npm_audit:
+  stage: security
+  image: node:20-alpine
+  script:
+    - npm audit --audit-level=critical
+
+# 3. Native GitLab Secret Detection (SAST)
+include:
+  - template: Security/Secret-Detection.gitlab-ci.yml
