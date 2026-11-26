@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Work from "./pages/Work";
+import CaseStudy from "./pages/CaseStudy";
 import Community from "./pages/Community";
 import Contact from "./pages/Contact";
 
@@ -82,10 +83,46 @@ const responsiveCss = `
   @media(max-width:640px){
     .bp-work-item{ grid-template-columns:32px 1fr !important; }
   }
+
+  /* Added: Technical Monospace Font utility for infrastructure components */
+  .font-mono {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  }
+  
+  /* Added: Floating CI/CD Badge styling */
+  .bp-sys-status {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 50;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(144, 238, 144, 0.2);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  .bp-sys-status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #4ade80; /* Success green */
+    border-radius: 50%;
+    box-shadow: 0 0 8px #4ade80;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+  }
 `;
 
 export default function App() {
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(true);
   const t = dark ? themeTokens.dark : themeTokens.light;
 
   return (
@@ -99,19 +136,29 @@ export default function App() {
           fontFamily: "'Inter', -apple-system, sans-serif",
           lineHeight: 1.55,
           transition: "background .25s ease, color .25s ease",
+          position: "relative",
         }}
       >
         <Header />
+        
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/work" element={<Work />} />
+            <Route path="/work/:projectId" element={<CaseStudy />} /> 
             <Route path="/community" element={<Community />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
+        
         <Footer />
+
+        <div className="bp-sys-status font-mono" style={{ background: dark ? 'rgba(0,0,0,0.7)' : 'rgba(255,255,255,0.8)' }}>
+          <div className="bp-sys-status-dot"></div>
+          <span>SYS: ONLINE | ENV: PROD | CI: PASSING</span>
+        </div>
+
       </div>
     </ThemeContext.Provider>
   );
