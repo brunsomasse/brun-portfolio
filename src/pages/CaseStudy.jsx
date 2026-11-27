@@ -3,6 +3,25 @@ import { useTheme, WORK_ITEMS } from "../theme";
 import { ArrowLeft, Server, ExternalLink, GitBranch } from "lucide-react";
 
 const CASE_STUDIES = {
+  "umb-live-minigolf-leaderboard": {
+    title: "UMB Live Minigolf Tournament & Leaderboard Platform",
+    role: "Cloud & DevOps Engineer / Full-Stack Architect • eu-north-1",
+    diagram: "/assets/umb-minigolf-architecture.webp",
+    summary:
+      "Designed and deployed a real-time minigolf tournament scoring and spectator leaderboard platform for the Union des Minigolfeurs du Bénin (UMB) on AWS (eu-north-1). The stack pairs an Nginx-fronted EC2 host and systemd-managed Node.js Express API with a private Amazon RDS MySQL database and AWS SSM Parameter Store secrets—avoiding hardcoded credentials and public database exposure.",
+    stack: [
+      "Amazon EC2",
+      "Amazon RDS (MySQL)",
+      "AWS SSM Parameter Store",
+      "AWS IAM (IMDSv2)",
+      "Nginx",
+      "Node.js (Express)",
+      "systemd",
+      "HTML5 / CSS3 / JS",
+    ],
+    architecture:
+      "Spectator and official browsers connect over HTTP (Port 80) to Nginx running on EC2 instance abs-lab-web-001 in a public subnet. Nginx serves the responsive live-polling leaderboard UI (5-second polling interval) at / and reverse-proxies /api/* to the Node.js Express API on 127.0.0.1:3001 managed by systemd. At startup, the service uses its IAM Instance Profile (IMDSv2) and SSM Parameter Store (/abs-lab/db/host, /abs-lab/db/name, /abs-lab/db/user, and KMS-encrypted /abs-lab/db/password) to initialize connections over TLS (Port 3306 with global-bundle.pem) to private RDS MySQL instance abs-lab-db-001 across private subnets (eu-north-1a / 1b), protected by Security Group chaining and least-privilege DML/DDL separation.",
+  },
   "aws-hybrid-cicd": {
     title: "Hybrid Serverless & EC2 Cloud Lab with CI/CD",
     role: "Cloud Solutions Architect & DevOps Engineer · eu-north-1",

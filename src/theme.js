@@ -93,4 +93,12 @@ export const WORK_ITEMS = [
     tags: ["AWS Lambda", "CodePipeline", "EC2", "S3", "IAM", "Docker"],
     meta: "Cloud & CI/CD",
   },
+  {
+    index: "06",
+    slug: "umb-live-minigolf-leaderboard",
+    title: "UMB Live Minigolf Tournament & Leaderboard Platform",
+    desc: "Built a two-tier AWS tournament scoring and live leaderboard architecture in eu-north-1 using EC2, Nginx, Node.js, private RDS MySQL, and SSM Parameter Store with zero hardcoded secrets.",
+    tags: ["AWS EC2", "AWS RDS", "SSM", "IAM", "Nginx", "Node.js", "MySQL"],
+    meta: "Cloud & Backend",
+  },
 ];
